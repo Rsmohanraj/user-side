@@ -58,7 +58,7 @@ import { createReviewFail,
  export const getProduct = id => async (dispatch) => {
     try{
         dispatch(productRequest())
-        const { data} = await axios.get(`https://server-side-0nct.onrender.com/api/v1/product/${id}`);
+        const { data} = await axios.get(`https://server-side-16.onrender.com/api/v1/product/${id}`);
         dispatch(productSuccess(data))
     }catch(error){
         dispatch(productFail(error.response.data.message));
@@ -72,7 +72,7 @@ import { createReviewFail,
                 'Content-Type':'application/json'
             }
         }
-        const { data} = await axios.put(`https://server-side-0nct.onrender.com/api/v1/review`, reviewData,config);
+        const { data} = await axios.put(`https://server-side-16.onrender.com/api/v1/review`, reviewData,config);
         dispatch(createReviewSuccess(data))
     }catch(error){
         dispatch(createReviewFail(error.response.data.message));
@@ -83,7 +83,7 @@ import { createReviewFail,
  export const getAdminProducts = async (dispatch) => {
     try{
         dispatch(adminProductsRequest())
-        const { data} = await axios.get(`https://server-side-0nct.onrender.com/api/v1/admin/products`);
+        const { data} = await axios.get(`https://server-side-16.onrender.com/api/v1/admin/products`);
         dispatch(adminProductsSuccess(data))
     }catch(error){
         dispatch(adminProductsFail(error.response.data.message));
@@ -92,7 +92,7 @@ import { createReviewFail,
  export const createNewProduct = productData => async (dispatch) => {
     try{
         dispatch(newProductRequest())
-        const { data} = await axios.post(`https://server-side-0nct.onrender.com/api/v1//admin/product/new`,productData,);
+        const { data} = await axios.post(`https://server-side-16.onrender.com/api/v1//admin/product/new`,productData,);
         dispatch(newProductSuccess(data))
     }catch(error){
         dispatch(newProductFail(error.response.data.message));
@@ -101,7 +101,7 @@ import { createReviewFail,
  export const deleteProduct = id => async (dispatch) => {
     try{
         dispatch(deleteProductRequest())
-    await axios.delete(`https://server-side-0nct.onrender.com/api/v1//admin/product/${id}`);
+    await axios.delete(`https://server-side-16.onrender.com/api/v1//admin/product/${id}`);
         dispatch(deleteProductSuccess())
     }catch(error){
         dispatch(deleteProductFail(error.response.data.message));
@@ -110,7 +110,7 @@ import { createReviewFail,
  export const updateProduct = (id,productData) => async (dispatch) => {
     try{
         dispatch(updateProductRequest())
-        const { data} = await axios.put(`https://server-side-0nct.onrender.com/api/v1//admin/product/${id}`,productData,);
+        const { data} = await axios.put(`https://server-side-16.onrender.com/api/v1//admin/product/${id}`,productData,);
         dispatch(updateProductSuccess(data))
     }catch(error){
         dispatch(updateProductFail(error.response.data.message));
@@ -121,7 +121,7 @@ import { createReviewFail,
         dispatch(reviewRequest())
       
          
-        const { data} = await axios.get(`https://server-side-0nct.onrender.com/api/v1/admin/reviews`,{params:{id}});
+        const { data} = await axios.get(`https://server-side-16.onrender.com/api/v1/admin/reviews`,{params:{id}});
         dispatch(reviewSuccess(data))
     }catch(error){
         dispatch(reviewFail(error.response.data.message));
@@ -130,7 +130,7 @@ import { createReviewFail,
  export const deleteReview = (productId,id) => async (dispatch) => {
     try{
         dispatch(deleteReviewRequest())
-        await axios.delete(`https://server-side-0nct.onrender.com/api/v1/admin/review`,{params:{ productId, id}});
+        await axios.delete(`https://server-side-16.onrender.com/api/v1/admin/review`,{params:{ productId, id}});
         dispatch(deleteReviewSuccess())
     }catch(error){
         dispatch(deleteReviewFail(error.response.data.message));
