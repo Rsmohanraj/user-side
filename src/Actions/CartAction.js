@@ -5,7 +5,7 @@ import { addCartItemRequest, addCartItemSuccess } from "../Slices/CartSlice"
 export const addToCart =(id, quantity) => async(dispatch) => {
     try {
         dispatch(addCartItemRequest())
-        const { data } = await axios.get(`https://server-side-0nct.onrender.com/api/v1/product/${id}`)
+        const { data } = await axios.get(`https://server-side-16.onrender.com/api/v1/product/${id}`)
         dispatch(addCartItemSuccess({
             product:data.product._id,
             name: data.product.name,
