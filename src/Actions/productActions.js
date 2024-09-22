@@ -64,20 +64,25 @@ import { createReviewFail,
         dispatch(productFail(error.response.data.message));
     }
  }
- export const createReview = reviewData=> async (dispatch) => {
-    try{
-        dispatch(createReviewRequest())
-        const config ={
-            headers:{
-                'Content-Type':'application/json'
-            }
-        }
-        const { data} = await axios.put(`https://server-side-16.onrender.com/api/v1/review`, reviewData,config);
-        dispatch(createReviewSuccess(data))
-    }catch(error){
-        dispatch(createReviewFail(error.response.data.message));
+ export const createReview = (reviewData) => async (dispatch) => {
+    try {
+        dispatch(createReviewRequest());
+        const config = {
+            headers: {
+                'Content-Type': 'application/json',
+            },
+        };
+
+        console.log('Review Data:', reviewData); // Log the review data
+
+        const { data } = await axios.post(`https://server-side-16.onrender.com/api/v1/review`, reviewData, config);
+        dispatch(createReviewSuccess(data));
+    } catch (error) {
+        console.error('Error creating review:', error); // Log the full error object
+        const message = error.response?.data?.message || error.message || 'An error occurred';
+        dispatch(createReviewFail(message)); // Pass the error message to your fail action
     }
- }
+};
 
 
  export const getAdminProducts = async (dispatch) => {
