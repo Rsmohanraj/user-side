@@ -72,7 +72,7 @@ import { createReviewFail,
                 'Content-Type':'application/json'
             }
         }
-        const { data} = await axios.put(`https://server-side-16.onrender.com/api/v1/review`, reviewData,config);
+        const { data} = await axios.post(`https://server-side-16.onrender.com/api/v1/review`, reviewData,config);
         dispatch(createReviewSuccess(data))
     }catch(error){
         dispatch(createReviewFail(error.response.data.message));
