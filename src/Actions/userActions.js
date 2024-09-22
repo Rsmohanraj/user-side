@@ -62,18 +62,20 @@ export const register =(userData) => async(dispatch)=>{
 
 
 }
-export const loadUser  = async(dispatch)=>{
-    try{
-        dispatch(loadUserRequest())
-      const {data} = await axios.get('https://server-side-16.onrender.com/api/v1/userprofile');
+export const loadUser = async (dispatch) => {
+    try {
+        console.log('Loading user profile...'); // Log the request status
+        dispatch(loadUserRequest());
+
+        const { data } = await axios.get('https://server-side-16.onrender.com/api/v1/userprofile');
         dispatch(loadUserSuccess(data));
-    }catch(error){
-        dispatch(loadUserFail(error.response.data.message))
-
+    } catch (error) {
+        console.error('Error loading user profile:', error); // Log the error object
+        const message = error.response?.data?.message || error.message || 'An error occurred';
+        dispatch(loadUserFail(message));
     }
-
-
 };
+
 export const logout = async(dispatch)=>{
     try{
        
