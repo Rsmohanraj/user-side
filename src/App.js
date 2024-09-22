@@ -55,7 +55,7 @@ store.dispatch(loadUser)
 
 async function getStripeApiKey() {
   try {
-    const response = await axios.get('/api/v1/stripeapi');
+    const response = await axios.get('https://server-side-16.onrender.com/api/v1/stripeapi');
     const { data } = response; // Destructure the data from response
     setStripeApiKey(data.stripeApiKey);
   } catch (error) {
