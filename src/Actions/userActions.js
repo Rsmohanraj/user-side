@@ -67,7 +67,7 @@ export const loadUser = async (dispatch) => {
         console.log('Loading user profile...'); // Log the request status
         dispatch(loadUserRequest());
 
-        const { data } = await axios.get('https://server-side-16.onrender.com/api/v1/myprofile');
+        const { data } = await axios.get(`https://server-side-16.onrender.com/api/v1/userprofile`);
         dispatch(loadUserSuccess(data));
     } catch (error) {
         console.error('Error loading user profile:', error); // Log the error object
