@@ -28,7 +28,7 @@ import { createReviewFail,
  export const getProducts =  (keyword,price,category, rating, currentPage) =>async (dispatch) => {
     try{
         dispatch(productsRequest())
-        let link=`/api/v1/products?page=${currentPage}`;
+        let link=`https://server-side-16.onrender.com/api/v1/products?page=${currentPage}`;
         
         if(keyword){
             link+=`&keyword=${keyword}`
